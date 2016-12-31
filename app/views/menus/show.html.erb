@@ -7,8 +7,13 @@
 
 <p>
   <strong>Food Items:</strong>
-  <%= @menu.food.to_s %>
+  <br>
+  <% @menu.foods.each do |food|%>
+  <%= food.inspect %> <br>
+  <% end%>
 </p>
+
+
 
 <%= link_to 'Edit', edit_menu_path(@menu) %> |
 <%= link_to 'Back', menus_path %>

@@ -12,7 +12,7 @@ category = Array['Vegetarian', 'Vegan', 'Gluten Free', 'Dairy Free', 'Organic'];
   menu = Menu.create!(id: j, menuname: "Menu##{j}" )
 
   (0..3).each do |i|
-    food = Food.create!(id: (i+ i + (j*j)) ,foodname: foods[i], category: category[i] , calories: i * 100, price:i + 2.99, menu_id: i);
+    food = Food.create!(id: (i+ i + (j*j)) ,foodname: foods[i], category: category[i] , calories: i * 100, price:i + 2.99, menu_id: j);
 
   end
 end
