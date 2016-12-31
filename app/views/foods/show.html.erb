@@ -20,5 +20,10 @@
   <%= @food.price %>
 </p>
 
+<p>
+  <strong>Menu:</strong>
+  <%= @food.menu.to_s %>
+</p>
+
 <%= link_to 'Edit', edit_food_path(@food) %> |
 <%= link_to 'Back', foods_path %>

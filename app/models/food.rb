@@ -3,6 +3,7 @@ class Food < ApplicationRecord
   validates :category, presence: true
   validates :calories, presence: true
   validates :price, presence: true
-  
-  belongs_to :user
+  validates :menu, presence: true
+
+  belongs_to :menu
 end

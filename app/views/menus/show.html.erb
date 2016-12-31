@@ -5,5 +5,10 @@
   <%= @menu.menuname %>
 </p>
 
+<p>
+  <strong>Food Items:</strong>
+  <%= @menu.food.to_s %>
+</p>
+
 <%= link_to 'Edit', edit_menu_path(@menu) %> |
 <%= link_to 'Back', menus_path %>
