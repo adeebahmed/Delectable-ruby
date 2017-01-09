@@ -5,6 +5,7 @@ class FoodsController < ApplicationController
   # GET /foods.json
   def index
     @foods = Food.all
+    @menu = Menu.first
   end
 
   # GET /foods/1
@@ -15,7 +16,7 @@ class FoodsController < ApplicationController
   # GET /foods/new
   def new
     @food = Food.new
-    @food.menu = @Menu
+    @food.menu = @menu
   end
 
   # GET /foods/1/edit
@@ -70,6 +71,6 @@ class FoodsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def food_params
-      params.require(:food).permit(:foodname, :category, :calories, :price, :menu)
+      params.require(:food).permit(:foodname, :category, :calories, :price)
     end
 end

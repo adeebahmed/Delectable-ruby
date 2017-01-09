@@ -22,7 +22,7 @@
 
 <p>
   <strong>Menu:</strong>
-  <%= @food.menu.menuname %>
+  <%= @food.menu.menuname if defined?(@food.menu.menuname) %>
 </p>
 
 <%= link_to 'Edit', edit_food_path(@food) %> |
