@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Foodname:</strong>
+  <%= @food.foodname %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @food.category %>
+</p>
+
+<p>
+  <strong>Calories:</strong>
+  <%= @food.calories %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @food.price %>
+</p>
+
+<p>
+  <strong>Menu:</strong>
+  <%= @food.menu.menuname if defined?(@food.menu.menuname) %>
+</p>
+
+<%= link_to 'Edit', edit_food_path(@food) %> |
+<%= link_to 'Back', foods_path %>

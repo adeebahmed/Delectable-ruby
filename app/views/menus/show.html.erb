@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Menuname:</strong>
+  <%= @menu.menuname %>
+</p>
+
+<p>
+  <strong>Food Items:</strong>
+  <br>
+  <% @menu.foods.each do |food|%>
+  <%= food.inspect %> <br>
+  <% end%>
+</p>
+
+
+
+<%= link_to 'Edit', edit_menu_path(@menu) %> |
+<%= link_to 'Back', menus_path %>
