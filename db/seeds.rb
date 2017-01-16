@@ -16,3 +16,31 @@ category = Array['Vegetarian', 'Vegan', 'Gluten Free', 'Dairy Free', 'Organic'];
 
   end
 end
+
+Order.destroy_all
+Customer.destroy_all
+Report.destroy_all
+
+
+firstname = Array['Adeeb', 'Sam', 'John'];
+lastname = Array['Ahmed', 'Stone', 'Doe'];
+phonenumber = Array['6438122934', '12344343575', '321532155'];
+email = Array['adeeb@delectable.com', 'sam@delectable.com', 'john@delectable.com'];
+
+(0..2).each do |c|
+  customer = Customer.create!(id: c, firstname:firstname[c], lastname:lastname[c], phone:phonenumber[c], email:email[c])
+end
+
+
+@foods = Food.all
+
+(0..2).each do |o|
+  #foodids = @foods[o].id.to_s + ',' + @foods[o + 1].id.to_s
+  foodorder = Array[@foods[o].foodname.to_s, @foods[((o + 1) * 2) - 1].foodname.to_s]
+  ttl = @foods[o].price + @foods[((o + 1) * 2) - 1].price
+
+  order= Order.create!(id: o, foods: foodorder, total:ttl, surcharge:0.00, ship:"3333 S Wabash Ave", billing:"6382910293821232:0817:456",
+                       instructions:"Call when outside", status:"Delivered", customer_id:o)
+end
+
+#report = report.create!(id: 0,)
