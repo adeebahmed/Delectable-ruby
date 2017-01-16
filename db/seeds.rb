@@ -17,10 +17,9 @@ category = Array['Vegetarian', 'Vegan', 'Gluten Free', 'Dairy Free', 'Organic'];
   end
 end
 
-Order.destroy_all
-Customer.destroy_all
-Report.destroy_all
 
+Customer.destroy_all
+Admin.destroy_all
 
 firstname = Array['Adeeb', 'Sam', 'John'];
 lastname = Array['Ahmed', 'Stone', 'Doe'];
@@ -31,6 +30,12 @@ email = Array['adeeb@delectable.com', 'sam@delectable.com', 'john@delectable.com
   customer = Customer.create!(id: c, firstname:firstname[c], lastname:lastname[c], phone:phonenumber[c], email:email[c])
 end
 
+admin = Admins.create!(id:0, firstname: firstname[0], lastname: lastname[0], surcharge: 0.00)
+
+
+
+Order.destroy_all
+Report.destroy_all
 
 @foods = Food.all
 
