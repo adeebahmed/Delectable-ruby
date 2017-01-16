@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>Date</th>
       <th>Total</th>
       <th>Surcharge</th>
       <th>Status</th>
@@ -15,6 +16,7 @@
   <tbody>
     <% @reports.each do |report| %>
       <tr>
+        <td><%= report.created_at.to_s.split(" ")[0] %></td>
         <td><%= report.total %></td>
         <td><%= report.surcharge %></td>
         <td><%= report.status %></td>
