@@ -30,7 +30,7 @@ email = Array['adeeb@delectable.com', 'sam@delectable.com', 'john@delectable.com
   customer = Customer.create!(id: c, firstname:firstname[c], lastname:lastname[c], phone:phonenumber[c], email:email[c])
 end
 
-admin = Admins.create!(id:0, firstname: firstname[0], lastname: lastname[0], surcharge: 0.00)
+admin = Admin.create!(id:0, firstname: firstname[0], lastname: lastname[0], surcharge: 0.00)
 
 
 
@@ -38,14 +38,26 @@ Order.destroy_all
 Report.destroy_all
 
 @foods = Food.all
-
+report = Report.create!(id: 0)
 (0..2).each do |o|
   #foodids = @foods[o].id.to_s + ',' + @foods[o + 1].id.to_s
   foodorder = Array[@foods[o].foodname.to_s, @foods[((o + 1) * 2) - 1].foodname.to_s]
   ttl = @foods[o].price + @foods[((o + 1) * 2) - 1].price
 
   order= Order.create!(id: o, foods: foodorder, total:ttl, surcharge:0.00, ship:"3333 S Wabash Ave", billing:"6382910293821232:0817:456",
-                       instructions:"Call when outside", status:"Delivered", customer_id:o)
+                       instructions:"Call when outside", status:"Delivered", customer_id:o, report_id: 0)
 end
 
-#report = report.create!(id: 0,)
+@report = Report.first
+@orders = Order.all
+@ordersum = 0
+@ordersurcharge = 0
+
+@orders.each do |order|
+  @ordersum += order.total.to_f
+  @ordersurcharge = order.surcharge
+end
+
+@report.total = @ordersum
+@report.surcharge = @ordersurcharge
+@report.save
