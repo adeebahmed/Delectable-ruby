@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :admins
   resources :reports
+  resources :admins
   resources :customers
   resources :orders
   resources :menus

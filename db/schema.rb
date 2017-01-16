@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170116223350) do
+ActiveRecord::Schema.define(version: 20170116231335) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "firstname"
@@ -34,12 +34,10 @@ ActiveRecord::Schema.define(version: 20170116223350) do
     t.string   "category"
     t.integer  "calories"
     t.float    "price"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.integer  "menuname_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer  "menu_id"
     t.index ["menu_id"], name: "index_foods_on_menu_id"
-    t.index ["menuname_id"], name: "index_foods_on_menuname_id"
   end
 
   create_table "menus", force: :cascade do |t|
@@ -59,10 +57,8 @@ ActiveRecord::Schema.define(version: 20170116223350) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "customer_id"
-    t.integer  "order_id"
     t.integer  "report_id"
     t.index ["customer_id"], name: "index_orders_on_customer_id"
-    t.index ["order_id"], name: "index_orders_on_order_id"
     t.index ["report_id"], name: "index_orders_on_report_id"
   end
 
