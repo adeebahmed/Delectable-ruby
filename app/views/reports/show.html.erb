@@ -6,16 +6,6 @@
 </p>
 
 <p>
-  <strong>Total:</strong>
-  <%= @report.total %>
-</p>
-
-<p>
-  <strong>Surcharge:</strong>
-  <%= @report.surcharge %>
-</p>
-
-<p>
   <strong>Status:</strong>
   <%= @report.status %>
 </p>
@@ -26,6 +16,29 @@
   <% @report.orders.each do |order|%>
       <%= order.inspect %> <br>
   <% end%>
+</p>
+
+<p>
+  <strong>Customers:</strong>
+  <br>
+  <% @report.orders.each do |order|%>
+      <% @cus = Customer.all%>
+      <% @cus.each do |cus|%>
+          <% if cus.attributes == order.customer.attributes then %>
+              <%= cus.inspect %><br>
+          <% end%>
+      <% end%>
+  <% end%>
+</p>
+
+<p>
+  <strong>Surcharge: $</strong>
+  <%= @report.surcharge %>
+</p>
+
+<p>
+  <strong>Total: $</strong>
+  <%= @report.total %>
 </p>
 
 
