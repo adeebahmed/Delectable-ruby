@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @report.created_at %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @report.status %>
+</p>
+
+<p>
+  <strong>Orders:</strong>
+  <br>
+  <% @report.orders.each do |order|%>
+      <%= order.inspect %> <br>
+  <% end%>
+</p>
+
+<p>
+  <strong>Customers:</strong>
+  <br>
+  <% @report.orders.each do |order|%>
+      <% @cus = Customer.all%>
+      <% @cus.each do |cus|%>
+          <% if cus.attributes == order.customer.attributes then %>
+              <%= cus.inspect %><br>
+          <% end%>
+      <% end%>
+  <% end%>
+</p>
+
+<p>
+  <strong>Surcharge: $</strong>
+  <%= @report.surcharge %>
+</p>
+
+<p>
+  <strong>Total: $</strong>
+  <%= @report.total %>
+</p>
+
+
+<%= link_to 'Edit', edit_report_path(@report) %> |
+<%= link_to 'Back', reports_path %>
